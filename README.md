@@ -96,6 +96,7 @@ While there are some weird strategies that could throw you for a loop if you hav
 * When a play clue touches multiple cards, if it includes the chop, it's focused on the chop.
 * Otherwise it's focused on the newest of the freshly-introduced cards.
 * The non-focused cards may or may not be playable.
+* 1s in the opening hand should be played right to left.
 
 ### 6. Left-Most Playable Principle
 
@@ -533,24 +534,6 @@ Trash is not commonly clued, as it violates *Good Touch Principle*. The *Trash C
 * So if a *Fix Clue* is given early to you, it can be strange. You were happily discarding, and now all of a sudden you are being fixed on a card that was just sitting in your hand and was not in danger of being misplayed.
 * This usually means that your chop suddenly became important, so the *Fix Clue* was given early to give you a good discard and keep you occupied. Thus, you should permanently chop move one card.
 
-### 1's Out-of-Order Chop Move
-
-* Normally, at the beginning of the game, players are expected to play their 1s from right to left.
-* If a player skips over their right-most 1, and there is nothing else special going on, it means that the next person should chop move one card.
-* If they skip over TWO of their right-most 1s, it means that the next person should chop move the card next to their chop.
-* A skip of three 1s means a chop move shift of 2, and so forth.
-* For example, in a 3-player game:
-  * It is the first turn of the game.
-  * Alice clues Bob number 1, which highlights three 1's. They are in slots 1, 2, and 3.
-  * Bob is expected to play slot 3 (which is the oldest 1). If he plays slot 3, nothing special happens.
-  * If Bob plays slot 2, he is performing a *1's Out-of-Order Chop Move*, and Cathy should chop move one card (her slot 5).
-  * If Bob plays slot 1, he is performing a *Skipped 1's Out-of-Order-Chop Move*, and Cathy should chop move the card next to her chop (her slot 4).
-* There are some common special situations that do NOT imply a *1's Out-of-Order Chop Move*:
-  * The 1 that was played was newly drawn and did NOT exist in the opening hand. (Fresh 1's always have priority.)
-  * The 1 that was played was originally *Finessed* from a clue that happened BEFORE the 1's number clue.
-  * The 1 that was played had some unique positive or negative color information on it and could potentially lead into someone else's hand.
-  * The 1 that was skipped over is known to be bad from contextual information, and the original 1's number clue was intended to have *Focus Inversion*. For example, if someone discards to end the *Early Game* (implying that there is nothing to do), and the next player clues two or more 1s, it means that the right-most 1 must be bad, so skipping over it does not imply anything special.
-
 ### The Misplay Chop Move
 
 * Sometimes, a desirable card is on the next person's chop and it is not directly cluable. In this situation, players can cleverly use the various kinds of chop moves in order to save the card (e.g. *1's Chop Move*, *5's Chop Move*, *Tempo Clue Chop Move*, and so forth).
@@ -906,6 +889,23 @@ Trash is not commonly clued, as it violates *Good Touch Principle*. The *Trash C
 * Similar to a normal *Prompt*, if a *Priority Prompt* mades you play the left-most card and it was not the matching card, then you should continuing playing clued cards until you find the matching card.
 * Finally, note that the "left-most" *Priority* is contextual and does not always apply. For example, it is common for players to play a right-most card that was originally clued with a *Save Clue*, since that card was explicitly saved and that the other cards in the hand of the same rank could potentially be duplicates.
 
+### Play/discard order of like cards
+
+* ***Tl;dr for experienced players*** "1s out-of-order chop move" and "trash discard chop move" are consolidated into "Play/discard order of like cards", which is also expanded to cover some rarer cases. The prescription is also changed for skipping over more than one card.
+* One may hold multiple *like* cards at a given time. "Like" here means playable cards of the same rank, or trash cards. Meaning can be encoded here in the order in which these cards are played or discarded, respectively.
+
+* The "play order principle" defines the conventional order in which to play/discard these cards.
+* The meaning we assign to non-conventional play/discard order depends on the game period:
+  * In the early game and midgame, applying to multiple playable cards of same rank but undistinguished suit (most commonly opening hand 1s), or multiple trash cards, or multiple fully distinguished playable 5s:
+    * Playing/discarding these cards in the non-conventional order indicates a *chop move*, and the number of cards skipped in the conventional order indicates which player should chop move, skipping over players with locked hands. Examples:
+      * Alice has three opening hand undistinguished 1s clued. She is expected to play the *rightmost* one. Playing the *middle* one will chop move Bob, and playing the *left* one will chop move Cathy.
+      * Alice has three trash 1s clued in the midgame. She is expected to discard the *leftmost* 1. Discarding the *middle* one normally would chop move Bob, but he's locked, so it chop moves Cathy; discarding the *rightmost* one therefore chop moves Donald.
+      * Alice has been 2-saved, leaving her with 2s on slots 3 and 4. Finally, all the 1s are played, and her 2s are still uncolored. She is expected to play slot 4 first, since it is known to be an important card; the other may be a dupe. Playing slot 3 will chop move Bob.
+  * In the lategame, applying to multiple trash cards, or multiple fully distinguished playable 5s:
+    * These are expected to discard/play *right to left*, so that a discard/play of the non-*rightmost* indicates a *positional play* on someone else's hand in the corresponding slot. Examples:
+      * Alice holds two yellow cards in the lategame, in slots 1 and 3, and all yellow stacks have been completed. Alice is expected to discard slot 3; discarding slot 1 will indicate that one of her teammates has an uncalled playable card on slot 1. By extension, discarding slots 2 or 4 also indicate positional plays.
+      * Alice holds a playable true yellow 5 in slot 2 and a playable true blue 5 in slot 3. Alice expected to play the blue 5; playing the yellow 5 indicates another player may blind play slot 2.
+
 ### A Priority Flowchart (For Choosing Between 2+ Playable Cards)
 
 *Priority* can sometimes be confusing. [Here is a handy flowchart](https://raw.githubusercontent.com/Zamiell/hanabi-conventions/master/img/priority_flowchart.png) that shows, in general, which card should be played when there is a choice between two cards.
@@ -1090,14 +1090,6 @@ Trash is not commonly clued, as it violates *Good Touch Principle*. The *Trash C
 * If you are clued the exact same thing twice before it gets to be your turn, it means that you can play ALL of the cards that the clue applies to, but in the opposite order than normal (right-to-left, since you would normally play cards from left-to-right).
   * If one of the cards includes the chop card, it means to play all of the cards from 2nd oldest to newest, and then the chop last.
 * If you are re-clued about a bunch of cards after you have already taken a turn, see the *Double Tempo Clue* convention.
-
-### Out-of-Order Trash Discard Chop Move
-
-* Sometimes, a player will have two known trash cards in their hand (and these cards are explicitly known trash, meaning that everyone on the team can equally see that they are known trash).
-* In this situation, the player is expected to discard the oldest (right-most) trash card, just in case someone made a mistake. (The older card is more likely to be truly trash.)
-* Thus, if a player skips over their oldest card and instead discards the other one, they must be trying to communicate something extra.
-* This means that the next player should chop move, which is similar to the *1's Out-of-Order Chop Move*.
-* Note that a player is NOT necessarily trying to perform a *Out-of-Order Trash Discard Chop Move* if the two trash cards have different kinds of clues on them. For example, by discarding specific trash cards, it can communicate that the player "sees" all of the non-trash possibilities of that card.
 
 ### The Elimination Blind Play Riding Deduction Bluff
 
@@ -1560,3 +1552,4 @@ n/a
 | Suboptimal Trash Bluff Chop Move | Libster
 | Out-of-Order Trash Discard Chop Move | Zamiel
 | Surreptitious Self-Finesse | Sankala
+| Play/discard order of like cards | Libster
